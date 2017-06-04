@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+
+
+{% block body %}
+   <div class="container float-middler">
+        <h1>फोटो अपलोड गर्नुहोस : </h1>
+
+        <div class="col-md-4">
+        	
+        	<form method='post' enctype='multipart/form-data' action="" >
+     			 <input type="file" name="file">
+                  <input type="submit" value="Identify">
+   			</form>
+        	
+        </div>
+       <div id=" result">
+
+       </div>
+
+        <div class=" clear"></div>
+   </div>
+
+
+
+
+{% endblock %}
+
