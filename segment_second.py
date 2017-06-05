@@ -16,8 +16,8 @@ def captch_ex_ss(file_name,img_final,ss):
     kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (10,
                                                          1))  # to manipulate the orientation of dilution , large x means horizonatally dilating  more, large y means vertically dilating more
     dilated = cv2.dilate(new_img, kernel, iterations=25)  # dilate , more the iteration more the dilation
-    cv2.imshow("di;ated",dilated)
-    cv2.waitKey(200)
+    # cv2.imshow("di;ated",dilated)
+    # cv2.waitKey(200)
     # contours, hierarchy = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)  # get contours
     cv2.imwrite(UPLOAD_FOLDER+"final_dialted.png",dilated)
 
@@ -47,10 +47,10 @@ def captch_ex_ss(file_name,img_final,ss):
 
         # draw rectangle around contour on original image
         rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 0, 255), 2)
-        cv2.imshow("Contours",rec)
+        # cv2.imshow("Contours",rec)
         # cv2.imshow("rec",rec)
         # cv2.waitKey()
-        cv2.imwrite(str(UPLOAD_FOLDER) + "segmented2.png", rec)
+        # cv2.imwrite(str(UPLOAD_FOLDER) + "segmented2.png", rec)
 
 
         #you can crop image and send to OCR  , false detected will return no text :)

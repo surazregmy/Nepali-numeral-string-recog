@@ -14,9 +14,23 @@
    			</form>
         	
         </div>
+       {%  if img is defined %}
+       <div id="image">
+        <img src='{{ img }}' style="height: 400px" style="width: 400px">
+       </div>
+       {% endif %}
+
+        {% if strings is defined %}
        <div id=" result">
+       <h3>The numbers are</h3>
+       <ol>
+           {% for string in strings %}
+               <li><b>{{ string }}</b></li>
+           {% endfor %}
+       </ol>
 
        </div>
+        {% endif %}
 
         <div class=" clear"></div>
    </div>
@@ -25,4 +39,5 @@
 
 
 {% endblock %}
+
 

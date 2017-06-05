@@ -7,7 +7,7 @@ from segall import identify
 
 
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path = "", static_folder = "templates/images")
 
 UPLOAD_FOLDER = join(dirname(realpath(__file__)),'templates/images')
 ALLOWED_EXTENSIONS = set(['png', 'jpg'])
@@ -37,7 +37,7 @@ def index():
             apply_threshold(filename)
             dig_string = identify()
             print(dig_string)
-            return render_template('home.html')
+            return render_template('home.html',strings = dig_string,img = file.filename)
 
     return  render_template('home.html')
 

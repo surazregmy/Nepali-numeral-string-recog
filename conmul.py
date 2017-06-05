@@ -30,9 +30,9 @@ def captch_ex_fs(file_name,img_final):
         [x, y, w, h] = cv2.boundingRect(contour)
         our_contours.append([x, y, w, h])
 
-    print(our_contours)
+    # print(our_contours)
     our_contours.sort(key=lambda x: x[1])
-    print(our_contours)
+    # print(our_contours)
 
     index = 0
     first_segments = [];
@@ -46,7 +46,7 @@ def captch_ex_fs(file_name,img_final):
 
         # draw rectangle around contour on original image
         rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 0, 255), 2)
-        cv2.imwrite(str(UPLOAD_FOLDER) + "segmented.png", rec)
+        # cv2.imwrite(str(UPLOAD_FOLDER) + "segmented.png", rec)
 
 
         #you can crop image and send to OCR  , false detected will return no text :)

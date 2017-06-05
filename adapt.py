@@ -23,16 +23,16 @@ def apply_threshold(filenmae):
     #     plt.xticks([]),plt.yticks([])
     # plt.show()
 
-    cv2.imshow("adaptive filtered",th2)
-    cv2.waitKey()
+    # cv2.imshow("adaptive filtered",th2)
+    # cv2.waitKey()
     inverted = 255 - th2
     cv2.imwrite(str(UPLOAD_FOLDER)+'inverted_final.png',inverted)
 
-    blurred = cv2.medianBlur(inverted,7);
-    cv2.imshow("Inverted d",inverted);
-    cv2.waitKey()
-    cv2.imshow("medina blurred",blurred);
-    cv2.waitKey(10000)
+    blurred = cv2.medianBlur(inverted,9);
+    # cv2.imshow("Inverted d",inverted);
+    # cv2.waitKey()
+    # cv2.imshow("medina blurred",blurred);
+    # cv2.waitKey(10000)
     cv2.imwrite(UPLOAD_FOLDERC+'median_blurred.png',blurred)
 
 

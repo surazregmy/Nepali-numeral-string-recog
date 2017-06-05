@@ -34,8 +34,8 @@ def gray_to_csv(rec_file):
     imgr = cv2.resize(img, (28, 28), interpolation=cv2.INTER_AREA)
     im = cv2.cvtColor(imgr, cv2.COLOR_BGR2GRAY)
     cv2.imwrite(UPLOAD_FOLDERC+"resized.png",im)
-    cv2.imshow("image",im)
-    cv2.waitKey(500)
+    # cv2.imshow("image",im)
+
 
 
     row, col = im.shape[:2]
