@@ -22,7 +22,9 @@
 
         {% if strings is defined %}
        <div id=" result">
+       <h3>Numbers found: {{ strings|length }} </h3>
        <h3>The numbers are</h3>
+
        <ol>
            {% for string in strings %}
                <li><b>{{ string }}</b></li>

@@ -46,7 +46,8 @@ def captch_ex_ss(file_name,img_final,ss):
             continue
 
         # draw rectangle around contour on original image
-        rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 0, 255), 2)
+        rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 255, 255), 2)
+        # cv2.imwrite(str(UPLOAD_FOLDER) + "Ssegmented.png", rec)
         # cv2.imshow("Contours",rec)
         # cv2.imshow("rec",rec)
         # cv2.waitKey()

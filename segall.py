@@ -10,6 +10,7 @@ from normalizedata import gray_to_csv
 
 UPLOAD_FOLDER2 = join(dirname(realpath(__file__)),'templates/mulsegimages/')
 def identify():
+    print("I am inside the identify")
     filename ='median_blurred.png'
 
     first_segments = captch_ex_fs(filename,filename)
@@ -45,6 +46,7 @@ def identify():
             digits_sec_rec =[]
             for digit in second_segments:
                 digit_csv = gray_to_csv(digit)
+                print("Here is the digit"+digit)
                 digit = recognize_single(digit_csv)
                 digits_sec_rec.append(digit)
             digits_first_rec.append(digits_sec_rec)

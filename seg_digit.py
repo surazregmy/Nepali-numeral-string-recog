@@ -36,6 +36,7 @@ def captch_ex_digits(file_name,img_final,r,d):
 
     index = 0
     digits = [];
+    # i = 0;
     for contour in our_contours:
         # get rectangle bounding contour
         [x, y, w, h] = contour
@@ -45,8 +46,9 @@ def captch_ex_digits(file_name,img_final,r,d):
             continue
 
         # draw rectangle around contour on original image
-        rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 0, 255), 2)
-        cv2.imwrite(str(UPLOAD_FOLDER) + "segmented.png", rec)
+        rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 255, 255), 2)
+        # cv2.imwrite(UPLOAD_FOLDER + "segmenteddigit"+str(i)+".png", rec)
+        # i= i+1
 
 
         #you can crop image and send to OCR  , false detected will return no text :)

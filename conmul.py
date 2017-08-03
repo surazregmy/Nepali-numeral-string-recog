@@ -4,7 +4,7 @@ UPLOAD_FOLDER = join(dirname(realpath(__file__)),'templates/mulsegimages/')
 
 def captch_ex_fs(file_name,img_final):
     img = cv2.imread(UPLOAD_FOLDER+file_name)
-
+    print("I am inside the captca_ex_fs")
     img_final = cv2.imread(UPLOAD_FOLDER+img_final)
     img2gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     ret, mask = cv2.threshold(img2gray, 180, 255, cv2.THRESH_BINARY)
@@ -18,7 +18,7 @@ def captch_ex_fs(file_name,img_final):
     dilated = cv2.dilate(new_img, kernel, iterations=51)  # dilate , more the iteration more the dilation
 
     # contours, hierarchy = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)  # get contours
-    cv2.imwrite(UPLOAD_FOLDER+"final_dialted.png",dilated)
+    # cv2.imwrite(UPLOAD_FOLDER+"finall_dialted.png",dilated)
 
 
 
@@ -41,12 +41,12 @@ def captch_ex_fs(file_name,img_final):
         [x, y, w, h] = contour
 
         # Don't plot small false positives that aren't text
-        if w < 35 and h < 35:
+        if w <10 and h <10:
             continue
 
         # draw rectangle around contour on original image
-        rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 0, 255), 2)
-        # cv2.imwrite(str(UPLOAD_FOLDER) + "segmented.png", rec)
+        rec = cv2.rectangle(img, (x , y ), (x + w , y + h ), (255, 255, 255),2)
+        # cv2.imwrite(str(UPLOAD_FOLDER) + "fsegmented.png", rec)
 
 
         #you can crop image and send to OCR  , false detected will return no text :)
@@ -60,6 +60,7 @@ def captch_ex_fs(file_name,img_final):
 
     # write original image with added contours to disk
     # cv2.imshow('captcha_result', img)
+
     # cv2.waitKey()
     return first_segments
 
